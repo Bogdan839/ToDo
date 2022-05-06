@@ -26,7 +26,7 @@ body {
     background-color: rgb(167, 167, 167);
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 10px 3px;
     margin-bottom: 5px;
 }
@@ -39,4 +39,8 @@ body {
 
 .min-btn:hover{
     background-color: rgb(231, 81, 81);
+}
+
+.checked{
+    background-color: rgb(36, 230, 36);
 }
