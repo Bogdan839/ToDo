@@ -11,22 +11,37 @@ window.onload = function () {
         elements.todo = input.value;
         elements.check = false;
         arrOfList.push(elements);
-        input.value = '';
+
 
         out()
     }
 
     function out() {
         let out = '';
-        let listItem = document.createElement('li');
-        listItem.classList.add('li');
-        list.appendChild(listItem)
+        if (input.value !== '') {
+            let listItem = document.createElement('li');
+            listItem.classList.add('li');
+            list.appendChild(listItem)
+            input.value = '';
 
-        for (let key in arrOfList) {
-            out = arrOfList[key].todo;
+            for (let key in arrOfList) {
+                out = arrOfList[key].todo;
+            }
+
+            listItem.textContent = out;
+            deleteItem(listItem);
         }
+    }
 
-        listItem.textContent = out;
+    function deleteItem(item) {
+        let deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('min-btn');
+        deleteBtn.textContent = 'Delete'
+        item.appendChild(deleteBtn)
+
+        deleteBtn.addEventListener('click', () => {
+            list.removeChild(item)
+        })
     }
 
 
