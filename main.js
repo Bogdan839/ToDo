@@ -10,7 +10,6 @@ window.onload = function () {
     }
 
     document.querySelector('.btn').onclick = function () {
-        // arrOfList = []
         let elements = {};
         elements.todo = input.value;
         elements.check = false;
@@ -38,7 +37,7 @@ window.onload = function () {
 
             listItem.textContent = out;
             deleteItem(listItem);
-            checked(listItem)
+            markedFinishTasks(listItem)
         }
 
 
@@ -55,22 +54,12 @@ window.onload = function () {
         })
     }
 
-    function checked(item) {
-        let inputCheck = document.createElement("input");
-        inputCheck.type = "checkbox";
-        item.appendChild(inputCheck)
-
-        let allItems = document.querySelectorAll('li');
-        console.log(allItems)
-        for (let key of allItems) {
-
-            if (inputCheck.checked) {
-                key.classList.add('checked')
-            } else {
-                key.classList.remove('checked')
+    function markedFinishTasks(item) {
+        item.addEventListener('click', e => {
+            if (e.target) {
+                item.classList.toggle('checked');
             }
-        }
-
+        })
     }
 
 
